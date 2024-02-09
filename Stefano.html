@@ -16,7 +16,7 @@
     <body>
         <a href="./Cover.html" style="text-decoration:none;" class="titolo">UNPLACED</a>
         <video class="images" autoplay loop playsinline>
-            <source data-src="./VIDEOS/STEFANO.mp4" type="video/mp4">
+            <source src="./VIDEOS/STEFANO.mp4" type="video/mp4">
         </video>
 <div class="contenuto">   
     <p>Stefano<br>
@@ -116,30 +116,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Imposta il volume di ciascun video selezionato
     videoBassi.forEach(function(video) {
         video.volume = 0.15; // Imposta il volume al 20%
-    });
-});
-document.addEventListener("DOMContentLoaded", function() {
-    var videoElements = document.querySelectorAll('video');
-
-    videoElements.forEach(video => {
-        var sourceElement = video.querySelector('source');
-        var videoSource = sourceElement.getAttribute('data-src');
-        var options = {
-            rootMargin: '0px',
-            threshold: 0.25
-        };
-
-        var observer = new IntersectionObserver(function(entries, observer) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    sourceElement.src = videoSource;
-                    video.load(); // Carica il video
-                    observer.unobserve(entry.target); // Smetti di osservare il video dopo il caricamento
-                }
-            });
-        }, options);
-
-        observer.observe(video);
     });
 });
  </script>
