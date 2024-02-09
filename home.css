@@ -1,0 +1,101 @@
+body{
+    margin: 0px;
+    background-color: black;
+    overflow: hidden;
+}
+a{
+    font-style: none;
+    color: white;
+}
+.titolo{
+font-family: "IBM Plex Sans", sans-serif;
+font-weight: 500;
+font-style: normal;
+font-weight: bold;
+font-size: 20;
+opacity: 50%;
+width: 100%;
+text-align: center;
+top: 10px;
+position: fixed;
+color: white;
+}
+.textabout{
+    position: absolute;
+    top: 35px;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 40;
+    color: white;
+    opacity: 50%;
+    width: 100%;
+    line-height: 110%;
+}
+.lettere{
+    margin: 10px;
+    font-size: 22;
+    color: white;
+    padding-top: 50px;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+.lettera{
+    height: 100%;
+    float: left;
+    width: 10%;
+    color: white;
+}
+.footer{
+    position: fixed;
+    width: 65%;
+    align-items: center;
+    font-size: 18;
+    text-align: center;
+    bottom: 10px;
+    align-items: center;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-weight: bold;
+    color: white;
+    border-radius: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.ciao::after {
+    content: attr(data-text-original);
+    visibility: visible;
+}
+
+.ciao:hover::after {
+    content: attr(data-text-hover);
+    cursor: pointer;
+}
+.ciao{
+    text-decoration: none;
+}
+#text, #about{
+opacity: 50%;
+}
+#about:hover{
+opacity: 100%;
+cursor: pointer;
+}
+.datas{
+    font-size: 20px;
+}
+#coordinateDisplay{
+    font-size: 14;
+    opacity: 50%;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 500;
+    font-style: normal;
+}
+.titolo:hover{
+    opacity: 100%;
+    cursor: pointer;
+}

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unplaced</title>
+        <!-- Collegamento al file CSS esterno -->
+        <link rel="stylesheet" href="home.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap" rel="stylesheet">
+    </head>
+    <body>
+<a href="./Cover.html" style="text-decoration:none;" class="titolo">UNPLACED</a>
+<div class="lettere">
+    <div class="lettera" ><a href="./Marina.html" class="ciao" data-text-original="M" data-text-hover="Marina"></a></div>
+    <div class="lettera" ><a href="./Fracesco.html" class="ciao" data-text-original="F" data-text-hover="Francesco"></a></div>
+    <div class="lettera" ><a href="./Lorenzo.html" class="ciao" data-text-original="L" data-text-hover="Lorenzo"></a></div>
+    <div class="lettera" ><a href="./Paola.html" class="ciao" data-text-original="P" data-text-hover="Paola"></a></div>
+    <div class="lettera" ><a href="./Orlando.html" class="ciao" data-text-original="O" data-text-hover="Orlando" ></a></div>
+    <div class="lettera" ><a href="./Fabio.html" class="ciao" data-text-original="F" data-text-hover="Fabio"></a></div>
+    <div class="lettera" ><a href="./Martina.html" class="ciao" data-text-original="M" data-text-hover="Martina"></a></div>
+    <div class="lettera" ><a href="./Giulia.html" class="ciao" data-text-original="G" data-text-hover="Giulia"></a></div>
+    <div class="lettera" ><a href="./Stefano.html" class="ciao" data-text-original="S" data-text-hover="Stefano"></a></div>
+    <div class="lettera" ><a href="./Camilla.html" class="ciao" data-text-original="C" data-text-hover="Camilla"></a></div>
+</div>
+<div class="footer">
+    <div id="coordinateDisplay">X: 0 Y: 0</div>
+    <span id="text">Che aspetto ha il tuo disagio?
+    Una raccolta di luoghi immaginari fievoli, disarmanti per la loro concretezza,<br> emerge direttamente dall'inconscio più velato delle nostre menti.</span>
+    <br><a href="./about.html" id="about">show more</a></div>
+<script>
+    // Seleziona tutti gli elementi con la classe 'elemento-casuale'
+    var elementi = document.querySelectorAll('.lettera');
+  
+    // Itera su ogni elemento e imposta un padding-top casuale
+    elementi.forEach(function(elemento) {
+      var paddingCasuale = Math.floor(Math.random() * 640); // Genera un numero casuale tra 0 e 50
+      elemento.style.paddingTop = paddingCasuale + 'px'; // Imposta il padding-top con il valore casuale
+    });
+    document.addEventListener('mousemove', function(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.getElementById('coordinateDisplay').textContent = `X: ${x} Y: ${y}`;
+    });
+  </script>
+    </body>
+</html>

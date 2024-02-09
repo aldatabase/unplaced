@@ -1,0 +1,122 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unplaced</title>
+        <!-- Collegamento al file CSS esterno -->
+        <link rel="stylesheet" href="Stanze.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <a href="./Cover.html" style="text-decoration:none;" class="titolo">UNPLACED</a>
+<video class="images" autoplay loop playsinline>
+    <source src="./VIDEOS/FABIO.mp4">
+</video>
+<div class="contenuto">   
+    <p>Fabio<br>
+    22 Anni</p>
+    <p class="frammenti"><span class="opacity">Frammenti:</span>
+    <br><span class="opacity">1. </span>Sì, Mi capita abbastanza spesso di sentire questa sensazione. Sento un'estraneazione, una mancanza di appartenenza che è difficile da spiegare. È come se il cuore cadesse, con farfalle nello stomaco.</p>
+    <p class="frammenti"><span class="opacity">2. </span>Non si tratta di un luogo chiuso ma piuttosto un freddo bosco. Si tratta di una sorta di bosco, poco concreto e un po' difficile da identificare, ma le sensazioni fisiche sono più tangibili, come il freddo. È un ambiente oppressivo, privo di chiarezza.</p>
+    <p class="frammenti"><span class="opacity">3. </span>Non è notte, ma c'è una luce diffusa che non offre molta chiarezza. Il clima è freddo, con suoni ovattati, come se le orecchie fossero tappate, e si percepiscono suoni provenienti dall'esterno.</p>
+    <p><span class="opacity">Parole chiave:</span>
+    <br><span class="frammenti">Estraneazione
+        <br>Bosco
+        <br>Freddo
+        <br>Ovattato
+    </span></p>
+    <p><span class="opacity">Prompt:</span>
+    <br>An ethereal, indistinct forest bathed in diffuse, cold light, dominated by shades of blue. Cold feeling.</p>
+    <p>
+    <span id="avviaAudio">Avvia audio</span>
+    </p>  
+    <audio id="mioAudio" src="./Audio-def/fabio-nota1.mp3" preload="auto"></audio>
+</div>
+<div class="footer"><div id="coordinateDisplay">X: 0 Y: 0</div><a href="./home.html" id="about">back to explore</a>
+</div>
+<script>
+// INGRANDIMENTO IMMAGINI
+const images = document.querySelectorAll('.images');
+let isEnlarged = true; // Impostare inizialmente su 'true' per attivare la funzione
+
+images.forEach(image => {
+  image.addEventListener('click', function () {
+    if (isEnlarged) {
+      const currentwidth = this.style.width || getComputedStyle(this).width;
+      if (currentwidth === '30%') {
+        this.style.width = '';
+        this.style.cursor = ''; // Torna al cursore specificato nel CSS
+      } else {
+        this.style.width = '30%';
+        this.style.cursor = 'se-resize';
+      }
+    }
+  });
+});
+document.querySelectorAll('.images').forEach(image => {
+    let timeouts = []; // Array per tenere traccia dei timeout
+
+    image.addEventListener('click', function () {
+        // Cancella tutti i timeout pendenti
+        timeouts.forEach(timeout => clearTimeout(timeout));
+        timeouts = []; // Reset dell'array dei timeout
+
+        // Resetta immediatamente lo stato visivo di tutti i paragrafi
+        const paragrafi = document.querySelectorAll('.contenuto p');
+        paragrafi.forEach(p => p.style.display = 'none');
+
+        // Funzione per far apparire i paragrafi uno alla volta
+        function mostraParagrafiInSequenza() {
+            paragrafi.forEach((p, index) => {
+                // Salva il timeout nell'array per poterlo cancellare se necessario
+                const timeout = setTimeout(() => {
+                    p.style.display = 'block'; // Mostra ogni paragrafo con un ritardo
+                }, index * 350 + 750); // Aggiunge 1 secondo di ritardo iniziale più il ritardo incrementale
+                timeouts.push(timeout);
+            });
+        }
+
+        // Aspetta un momento prima di iniziare l'animazione per dare l'effetto di reset
+        setTimeout(mostraParagrafiInSequenza); // Aspetta 100ms prima di iniziare l'animazione
+    });
+});
+document.addEventListener('mousemove', function(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.getElementById('coordinateDisplay').textContent = `X: ${x} Y: ${y}`;
+    });
+// Riferimento al paragrafo
+var paragrafo = document.getElementById('avviaAudio');
+
+// Riferimento all'elemento audio
+var audio = document.getElementById('mioAudio');
+
+// Aggiungi un gestore di eventi per il clic sul paragrafo
+paragrafo.addEventListener('click', function() {
+    // Controlla se l'audio è in riproduzione, se sì, metti in pausa, altrimenti avvialo
+    if (audio.paused) {
+        audio.play();
+        paragrafo.textContent = 'Audio in riproduzione... Clicca per mettere in pausa';
+    } else {
+        audio.pause();
+        paragrafo.textContent = 'Clicca qui per avviare l\'audio';
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleziona tutti i video con classe 'videoBasso'
+    var videoBassi = document.querySelectorAll('.images');
+    
+    // Imposta il volume di ciascun video selezionato
+    videoBassi.forEach(function(video) {
+        video.volume = 0.15; // Imposta il volume al 20%
+    });
+});
+ </script>
+    </body>
+</html>

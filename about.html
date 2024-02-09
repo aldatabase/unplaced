@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Unplaced</title>
+        <!-- Collegamento al file CSS esterno -->
+        <link rel="stylesheet" href="home.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Young+Serif&display=swap" rel="stylesheet">
+</head>
+    <body>
+ <a href="./Cover.html" style="text-decoration:none;" class="titolo">UNPLACED</a>
+<div class="textabout">Che aspetto ha il tuo disagio?<br>Una raccolta di luoghi immaginari fievoli, disarmanti per la loro concretezza, emerge direttamente dall'inconscio più velato delle nostre menti. 
+    <br>In psicologia, i campi emotivi possono essere interpretati come luoghi del pensiero, prevalentemente immaginari, che vivono e si alimentano in una dimensione principalmente inconscia.<br> Che forma ha questo luogo? Come te lo immagini?<br><span class="datas">Crediti: Federico Gajo, Emiliano Garibaldi, Nicola Maria Patitucci, Francesco Scarfone, Michele Venini</span></span>
+</div>
+<div class="footer"><div id="coordinateDisplay">X: 0 Y: 0</div><a href="./Home.html" id="about">show less</span>
+</div>
+<script>
+$(document).ready(function() {
+    $(document).click(function() {
+        $('.videoElement').toggleClass('videoRimpicciolito');
+    });
+});
+  </script>
+<script>
+  document.addEventListener('mousemove', function(e) {
+        const x = e.clientX;
+        const y = e.clientY;
+        document.getElementById('coordinateDisplay').textContent = `X: ${x} Y: ${y}`;
+    });
+</script>
+    </body>
+</html>
